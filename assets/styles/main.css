@@ -1,0 +1,10 @@
+.deuxcolones{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between
+}
+.moitier {
+    width: 49%;
+    padding-bottom: 20px;
+}

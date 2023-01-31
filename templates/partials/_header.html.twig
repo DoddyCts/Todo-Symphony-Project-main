@@ -1,0 +1,27 @@
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- Container pour la navigation -->
+    <div class="container-fluid">
+      <!-- Lien vers la page d'accueil avec logo -->
+      <a class="navbar-brand" href="../"><img src="{{ asset('images/logo.png') }}"></a>
+      <!-- Bouton pour afficher/cacher le menu en mode mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Liste des liens de navigation -->
+      <div  class="mx-5" align='right'>
+        <ul class="navbar-nav me-auto">
+          <!-- Lien vers la page d'accueil -->
+          <li class="nav-item">
+            <a class="nav-link active" href="../">Accueil</a>
+            <!-- Lien vers la page de tâches -->
+            <li class="nav-item">
+              <a class="nav-link" href="/tache">Tâche</a>
+            </li>
+            <!-- Lien vers la page de connexion -->
+            <li><a class="nav-link" href="/login">Connexion</a></li>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>

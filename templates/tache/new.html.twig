@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tache{% endblock %}
+
+{% block body %}
+    <h1 class="mt-4">Créer une nouvelle tache</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Confirmer</button>
+        <a href="{{ path('tache') }}" class="btn btn-secondary">Annuler</a>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

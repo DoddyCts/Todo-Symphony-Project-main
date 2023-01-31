@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tache index{% endblock %}
+
+{% block body %}
+    <h1 class="mt-4">Liste des tâches </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th>Date_de_fin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tache in taches %}
+            <tr>
+                {% if tache.photo %}
+                    <td width="20%">
+                        <img src="{{ tache.photo }}">
+                    </td>
+                    {% else %}
+                    <td width="20%">
+                        None
+                    </td>
+                    {% endif %}
+                <td> {{ tache.name }}</td>
+                <td width="40%">{{ tache.description }}</td>
+
+
+                {% if tache.statut == 0 %}
+                <td>à faire</td>
+                {% elseif tache.statut == 1 %}
+                <td>en cours</td>
+                {% elseif tache.statut == 2 %}
+                <td>terminé</td>
+                {% endif %}
+                <td>{{ tache.dateDeFin ? tache.dateDeFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                <div class="btn btn-primary"> 
+                    <a href="{{ path('app_tache_show', {'id': tache.id}) }}" style="color:white;text-decoration:none">Afficher</a>
+                    </div>
+                <div class="btn btn-primary">                    
+                    <a href="{{ path('app_tache_edit', {'id': tache.id}) }}" style="color:white;text-decoration:none">Modifier</a>
+                </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<center>
+<div class="btn btn-primary"> 
+    <a href="{{ path('app_tache_new') }}" style="color:white;text-decoration:none;">Nouvelle tache</a>
+<div>
+<center>
+{% endblock %}

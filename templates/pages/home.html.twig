@@ -1,0 +1,20 @@
+{% extends "base.html.twig"%}
+
+{% block title %}TodoList - Index{% endblock %}
+
+{% block body %}
+
+<!-- Container pour le contenu -->
+<div class="container mt-4">
+  <!-- Jumbotron pour la bienvenue -->
+	<div class="jumbotron">
+		<h1 class="display-4">Bienvenue sur Todo</h1>
+		<p class="lead">ToDoddyList est une application qui va te permettre de gérer tes tâches non finalisées,en cours ou terminées.</p>
+		<hr class="my-4">
+		<!-- Message pour inviter à l'inscription -->
+		<p>Pour commencer, rendez-vous sur la page d'inscription afin d'utiliser l'application.</p>
+		<!-- Bouton pour aller à la page d'inscription -->
+		<a class="btn btn-primary btn-lgz mt-4" href="{{ path('register') }}" role="button">Inscription</a>
+	</div>
+</div>
+{% endblock %}

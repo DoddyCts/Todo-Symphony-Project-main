@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<!-- Container section -->
+<section class="container mt-4">
+    <div class="row">
+        <!-- Form to log in -->
+        <form method="post">
+            <!-- Display error if any -->
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+                    <!-- Show message if user is logged in -->
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Me déconnecter</a>
+            </div>
+        {% endif %}
+
+        <!-- Login header -->
+        <h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
+        <!-- Input field for username -->
+        <label for="inputUsername">Nom d'utilisateur</label>
+        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+        <!-- Input field for password -->
+        <label for="inputPassword">Mot de passe</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+        <!-- CSRF token -->
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <!-- Uncomment for remember me functionality
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+        -->
+
+        <!-- Submit button -->
+        <button class="btn btn-lg btn-primary mt-4" type="submit">
+            Connexion
+        </button>
+        <!-- Link to register page -->
+        <a href="{{ path('register') }}" class="btn btn-lg btn-primary mt-4 mx-4">S'inscrire</a>
+    </form>
+    <!-- Empty column -->
+    <div class='col'>
+    </div>
+</div>
+</section>
+{% endblock %}
